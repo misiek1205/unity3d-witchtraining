@@ -11,21 +11,21 @@ public class ThirdPersonController : MonoBehaviour
     #region Properties
 
     // The speed when walking
-    public float walkSpeed = 3.0f;
+    private float walkSpeed = 4.0f;
     // after trotAfterSeconds of walking we trot with trotSpeed
-    public float trotSpeed = 4.0f;
+    private float trotSpeed = 9.0f;
     // when pressing "Fire3" button (cmd) we start running
-    public float runSpeed = 6.0f;
+    private float runSpeed = 18.0f;
 
     public float inAirControlAcceleration = 3.0f;
 
     // How high do we jump when pressing jump and letting go immediately
-    public float jumpHeight = 0.5f;
+    public float jumpHeight = 3.0f;
     // We add extraJumpHeight meters on top when holding the button down longer while jumping
     public float extraJumpHeight = 2.5f;
 
     // The gravity for the character
-    public float gravity = 20.0f;
+    public float gravity = 10.0f;
 
     // The gravity in controlled descent mode
     private float controlledDescentGravity = 2.0f;

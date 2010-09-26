@@ -29,8 +29,8 @@ public class PlayerCamera : MonoBehaviour
     void Awake()
     {
         this.target = GameObject.FindGameObjectWithTag("Player").transform;
-        this.height = 3.5f;
-        this.distance = 12.0f;
+        this.height = 1.0f;
+        this.distance = 4.3f;
         this.heightDamping = 3.0f;
         this.rotationDamping = 0.7f;
     }
