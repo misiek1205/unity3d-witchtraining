@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="witch training">
+</Property><Property Name="Solution File" Value="C:\Users\Scott\Desktop\work\Unity Projects\witch training\witch training.sln">
+</Property><Property Name="Date" Value="Monday, September 13, 2010">
+</Property><Property Name="Time" Value="19:58 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="witch training.sln" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\witch training.sln">
+</Event><Event ErrorLevel="0" Project="witch training" Source="witch training.csproj" Description="Project file successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\witch training.csproj">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\scripts\Player\ThirdPersonController.cs" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\scripts\Player\ThirdPersonController.cs">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\scripts\Player\ThirdPersonPlayerAnimation.cs" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\scripts\Player\ThirdPersonPlayerAnimation.cs">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Camera Scripts\MouseLook.cs" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Camera Scripts\MouseLook.cs">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Scripts\ActivateTrigger.cs" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Scripts\ActivateTrigger.cs">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Scripts\CombineChildren.cs" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Scripts\CombineChildren.cs">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Scripts\MeshCombineUtility.cs" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Scripts\MeshCombineUtility.cs">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Water\Sources\WaterSimple.cs" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Water\Sources\WaterSimple.cs">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Blob-Shadow\ShadowProjection.shader" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Blob-Shadow\ShadowProjection.shader">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Water\Sources\FX-Water Simple.shader" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Water\Sources\FX-Water Simple.shader">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Camera Scripts\MouseOrbit.js" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Camera Scripts\MouseOrbit.js">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Camera Scripts\SmoothFollow.js" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Camera Scripts\SmoothFollow.js">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Camera Scripts\SmoothLookAt.js" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Camera Scripts\SmoothLookAt.js">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Scripts\DragRigidbody.js" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Scripts\DragRigidbody.js">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Scripts\FPSWalker.js" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Scripts\FPSWalker.js">
+</Event><Event ErrorLevel="0" Project="witch training" Source="Assets\Standard Assets\Scripts\TimedObjectDestructor.js" Description="File successfully backed up as C:\Users\Scott\Desktop\work\Unity Projects\witch training\Backup\Assets\Standard Assets\Scripts\TimedObjectDestructor.js">
+</Event><Event ErrorLevel="0" Project="witch training" Source="witch training.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="witch training" Source="witch training.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="witch training.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="witch training.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="witch training" Source="witch training.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
