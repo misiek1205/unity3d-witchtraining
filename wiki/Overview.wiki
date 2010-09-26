@@ -10,3 +10,12 @@ As the Project Home states, this is an open source project I am working on that 
 Since this project is still in its _figuring out_ stage, there won't be much details here for now. I will try to zip the whole projects up as I go along. I am envisioning having everything in one zip file, where you can get the code and final assets. 
 
 I will also provide a separate zip file for the editable resource files like photoshop or blender files. They will be pretty big, so I think keeping them separate from the final asset files is a good idea.
+
+----
+
+==Things to do==
+ * Update city model with better lighting, mesh, and texture
+ * make timer look better with custom GUI skin
+ * model/animate main character with UV map
+ * tighten gameplay controls as well as bomb model and particle system
+ * visual effects around player flying and tokens that are collected
