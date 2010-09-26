@@ -29,8 +29,8 @@ public class PlayerCameraFlying : MonoBehaviour
     void Awake()
     {
         this.target = GameObject.FindGameObjectWithTag("Player").transform;
-        this.height = 8.0f;
-        this.distance = 27.0f;
+        this.height = 2.0f;
+        this.distance = 10.0f;
         this.heightDamping = 3.0f;
         this.rotationDamping = 3.0f;
     }

@@ -7,10 +7,10 @@ public class ThirdPersonFlyingController : MonoBehaviour
 {
 
 
-    public float flyingSpeed = 20.0f;
+    public float flyingSpeed = 15.0f;
     
-    public float runFlyMultiplier = 1.5f;
-    public float elevateMultipler = 3.0f;
+    private float runFlyMultiplier = 2.1f;
+    private float elevateMultipler = 2.0f;
     
     private bool isFlying = false;
     private ThirdPersonController characterController;
@@ -51,6 +51,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         axes = GetComponent<SmoothInputAxes>();
+
 
         moveDirection = transform.TransformDirection(Vector3.forward);
 
@@ -163,7 +164,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
             if (Input.GetButton("Rise"))
             {
                 //transform.Translate(0.0f, 10.0f * Time.deltaTime, 0.0f);
-                Vector3 riseAmount = new Vector3(0.0f, 10.0f * Time.deltaTime, 0.0f);
+                Vector3 riseAmount = new Vector3(0.0f, 7.0f * Time.deltaTime, 0.0f);
 
                 if (Input.GetButton("Run"))
                 {
@@ -177,7 +178,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
             if (Input.GetButton("Descend"))
             {
                 //transform.Translate(0.0f, -10.0f * Time.deltaTime, 0.0f);
-                Vector3 descendAmount = new Vector3(0.0f, -10.0f * Time.deltaTime, 0.0f);
+                Vector3 descendAmount = new Vector3(0.0f, -7.0f * Time.deltaTime, 0.0f);
                 
                 if (Input.GetButton("Run"))
                 {
