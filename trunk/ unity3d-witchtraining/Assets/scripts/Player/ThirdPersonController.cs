@@ -80,6 +80,8 @@ public class ThirdPersonController : MonoBehaviour
     private bool isControllable = true;
     private bool areKeysPressed = false;
 
+    private bool isFalling = false;
+
     #endregion
 
     #region Functions
@@ -254,18 +256,12 @@ public class ThirdPersonController : MonoBehaviour
 		lastJumpButtonTime = Time.time;
 	}
 
-	UpdateSmoothedMovementDirection();
-	
-	// Apply gravity
-	// - extra power jump modifies gravity
-	// - controlledDescent mode modifies gravity
+	UpdateSmoothedMovementDirection();	
 	ApplyGravity ();
+    ApplyJumping ();
 
-	
-	// Apply jumping logic
+    IsFalling();
 
-        ApplyJumping ();
-	
 	// Calculate actual motion
 	Vector3 movement = moveDirection * moveSpeed + new Vector3(0, verticalSpeed, 0) + inAirVelocity;
 	movement *= Time.deltaTime;
@@ -305,8 +301,8 @@ public class ThirdPersonController : MonoBehaviour
 
   }
 
-    
-    private void OnControllerColliderHit (ControllerColliderHit hit)
+
+ private void OnControllerColliderHit (ControllerColliderHit hit)
 {
 	if (hit.moveDirection.y > 0.01) 
 		return;
@@ -316,6 +312,7 @@ public class ThirdPersonController : MonoBehaviour
 	{
         //reset jumping apex;
         jumpingReachedApex = false;
+        isFalling = false;
 		
 	}
 
@@ -361,26 +358,37 @@ public class ThirdPersonController : MonoBehaviour
         }
     }
    
+
     public float GetSpeed()
     {
         return moveSpeed;
     }
-
     public bool IsJumping()
     {
       return jumping; 
     }
+    public bool IsFalling()
+    {
+        //will check to see if player is falling and will calculate fall damage depending on height
 
+        //if y value is decreasing at the rate of gravity, character is falling. Set bool to true
+        if (verticalSpeed <= -2.0f && isFalling == false && !IsJumping())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public float GetRunSpeed()
     {
         return runSpeed;
     }
-
     public bool HasJumpReachedApex()
     {
         return jumpingReachedApex;
-    }
-   
+    }   
     public bool IsGroundedWithTimeout()
     {
         return lastGroundedTime + groundedTimeout > Time.time;
