@@ -35,7 +35,7 @@ public class PlayerBombThrowing : MonoBehaviour
 
      
 
-            Debug.Log("asdf");
+            //Debug.Log("asdf");
 
             //calculate power of bomb
             bombTimerLength = Time.time - bombPowerTimer;

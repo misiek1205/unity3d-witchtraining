@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraManager : MonoBehaviour
 {
 
-    static enum ActiveCamera {  Title, PlayerGrounded, PlayerFly, ChallengeIntro, ChallengeWin, Gameover };
+    private enum ActiveCamera {  Title, PlayerGrounded, PlayerFly, ChallengeIntro, ChallengeWin, Gameover };
     private static ActiveCamera _cameraEnum;
 
     private bool cameraChanged = true;

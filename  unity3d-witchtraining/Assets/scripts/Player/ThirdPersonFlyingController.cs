@@ -64,7 +64,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
 
 
-        if (characterController.IsJumping() && !isFlying )
+        if (characterController.IsJumping() && !isFlying || characterController.IsFalling() )
         {
 
             //next jump button shouldn't be too close to first jump time
