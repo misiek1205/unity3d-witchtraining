@@ -201,18 +201,18 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
 
         //special collision things while in flight mode
-
-        if (hit.gameObject.tag == "World" && isFlying)
+        if (hit.gameObject.tag == "World" && isFlying || hit.gameObject.tag == "Buildings" && isFlying)
         {
             isFlying = false;
             characterController.enabled = true;
 
             //slowly change camera 
             camManager.CameraChanged("PlayerGrounded");
+                        
         }
 
 
-    }
+   }
 
 
     public Vector3 MoveDirection()

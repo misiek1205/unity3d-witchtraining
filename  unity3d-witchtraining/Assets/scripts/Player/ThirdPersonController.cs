@@ -244,6 +244,8 @@ public class ThirdPersonController : MonoBehaviour
 
     void Update()
     {
+
+       
  
         if (!isControllable)
 	    {
@@ -308,13 +310,19 @@ public class ThirdPersonController : MonoBehaviour
 		return;
 	
 
-    if (hit.gameObject.tag == "World")
-	{
+    if (hit.gameObject.tag == "World" || hit.gameObject.tag == "Buildings")
+    {
         //reset jumping apex;
         jumpingReachedApex = false;
         isFalling = false;
-		
-	}
+        
+        if (verticalSpeed < -10)
+        {
+            SendMessage("PlayerFallDamage");
+
+        }
+    }
+
 
 
  
@@ -357,8 +365,11 @@ public class ThirdPersonController : MonoBehaviour
             }
         }
     }
-   
 
+    public float VerticalSpeed()
+    {
+        return verticalSpeed;
+    }
     public float GetSpeed()
     {
         return moveSpeed;

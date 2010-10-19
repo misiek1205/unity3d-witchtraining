@@ -25,7 +25,7 @@ public class addBoxColliderToChildren : MonoBehaviour
         //access each child that the script is attached to. Add level tag to make sure player collides
         foreach (Transform child in transform)
         {
-            child.gameObject.tag = "World";
+           child.gameObject.tag = "Buildings";
         }
     }
 
