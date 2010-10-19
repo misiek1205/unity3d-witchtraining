@@ -9,8 +9,8 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
     public float flyingSpeed = 15.0f;
     
-    private float runFlyMultiplier = 2.1f;
-    private float elevateMultipler = 2.0f;
+    private float runFlyMultiplier = 3.1f;
+    private float elevateMultipler = 4.0f;
     
     private bool isFlying = false;
     private ThirdPersonController characterController;
