@@ -13,10 +13,12 @@ public Transform animationGameObject;
     void Start ()
 {
 	// By default loop all animations
-    animationGameObject.animation.wrapMode = WrapMode.Loop;
+   // animationGameObject.animation.wrapMode = WrapMode.Loop;
 
     animationGameObject.animation["run"].layer = -1;
+    animationGameObject.animation["run"].wrapMode = WrapMode.Loop;
     animationGameObject.animation["walk"].layer = -1;
+    animationGameObject.animation["walk"].wrapMode = WrapMode.Loop;
     animationGameObject.animation["idle"].layer = -2;
     animationGameObject.animation.SyncLayer(-1);
 
