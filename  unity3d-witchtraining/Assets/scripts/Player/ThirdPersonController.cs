@@ -315,17 +315,24 @@ public class ThirdPersonController : MonoBehaviour
         //reset jumping apex;
         jumpingReachedApex = false;
         isFalling = false;
-        
-        if (verticalSpeed < -10)
-        {
-            SendMessage("PlayerFallDamage");
 
-        }
+        
+    }
+
+    //hurt player if he is falling fast enough and collides with the ground below
+    if (verticalSpeed < -10 && IsFalling() && collisionFlags == CollisionFlags.Below)
+    {
+        SendMessage("PlayerFallDamage");
+        //Debug.Log("collided below");
+
     }
 
 
-
- 
+    if ((collisionFlags & CollisionFlags.CollidedBelow) != 0)
+    {
+        Debug.Log("Collided Below");
+    }
+   // Debug.Log(collisionFlags);
  	
 }
     
