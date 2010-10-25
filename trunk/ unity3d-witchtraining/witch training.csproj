@@ -61,7 +61,6 @@
      <Compile Include="Assets\scripts\Player\ThirdPersonFlyingController.cs" />
      <Compile Include="Assets\scripts\Player\ThirdPersonPlayerAnimation.cs" />
      <Compile Include="Assets\scripts\iTween.cs" />
-     <Compile Include="Assets\scripts\SmoothInputAxes.cs" />
      <None Include="Assets\Standard Assets\Blob-Shadow\ShadowProjection.shader" />
      <Compile Include="Assets\Standard Assets\Camera Scripts\MouseLook.cs" />
      <None Include="Assets\Standard Assets\Camera Scripts\MouseOrbit.js" />
