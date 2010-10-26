@@ -10,7 +10,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
     public float flyingSpeed = 15.0f;
     public float flyingBackSpeed = -5.0f;
     
-    private float runFlyMultiplier = 3.1f;
+    public float runFlyMultiplier = 3.1f;
     public float elevateMultipler = 4.0f;
     
     private bool isFlying = false;
@@ -170,7 +170,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
         //sets the movement after all the scenarios have been calculated
         moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
-        //Debug.Log("Move Speed:" + moveSpeed + " Target Speed:" + targetSpeed + " CurSmoth:" + curSmooth );
+        Debug.Log("Move Speed:" + moveSpeed + " Target Speed:" + targetSpeed + " CurSmoth:" + curSmooth );
 
         // Calculate actual motion
         Vector3 movement = moveDirection * moveSpeed;
@@ -230,7 +230,6 @@ public class ThirdPersonFlyingController : MonoBehaviour
         Vector3 elevateMovement = elevateSpeed * elevateDirection;
         collisionFlags = controller.Move(elevateMovement);
 
-        Debug.Log(elevateDirection);
 
         }
 
@@ -246,6 +245,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
         {
             isFlying = false;
             characterController.enabled = true;
+            moveSpeed = 0.0f;
 
             //slowly change camera 
             camManager.CameraChanged("PlayerGrounded");
@@ -267,7 +267,10 @@ public class ThirdPersonFlyingController : MonoBehaviour
     {
         return isFlying;
     }
-
+    public float MoveSpeed()
+    {
+        return moveSpeed;
+    }
    
 
 }//end class
