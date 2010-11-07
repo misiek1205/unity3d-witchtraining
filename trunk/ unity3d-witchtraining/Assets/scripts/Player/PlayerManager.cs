@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour
         else 
            _moveDirection = GetComponent<ThirdPersonController>().MoveDirection();
 
+
       
     }
 

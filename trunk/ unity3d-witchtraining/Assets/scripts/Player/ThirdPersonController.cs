@@ -87,7 +87,7 @@ public class ThirdPersonController : MonoBehaviour
     #region Functions
     //sets the move direction to current Forward vector in world space
     void Awake()  {       
-       moveDirection = transform.TransformDirection(Vector3.forward);
+       moveDirection = transform.TransformDirection(new Vector3(1, 1, 1));
     }
 
     
@@ -281,7 +281,7 @@ public class ThirdPersonController : MonoBehaviour
 	collisionFlags = controller.Move(movement);
 	
 	// Set rotation to the move direction
-	if (IsGrounded())
+	if (IsGrounded() && Input.GetAxisRaw("Horizontal") != 0 )
 		transform.rotation = Quaternion.LookRotation(moveDirection);
 	else
 	{
