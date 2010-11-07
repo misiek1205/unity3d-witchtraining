@@ -228,8 +228,9 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
         elevateSpeed = Mathf.Lerp(elevateSpeed, elevateTargetSpeed, curSmooth);
         Vector3 elevateMovement = elevateSpeed * elevateDirection;
+       
+        
         collisionFlags = controller.Move(elevateMovement);
-
 
         }
 
