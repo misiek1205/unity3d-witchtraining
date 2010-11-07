@@ -170,7 +170,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
         //sets the movement after all the scenarios have been calculated
         moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
-        Debug.Log("Move Speed:" + moveSpeed + " Target Speed:" + targetSpeed + " CurSmoth:" + curSmooth );
+        //Debug.Log("Move Speed:" + moveSpeed + " Target Speed:" + targetSpeed + " CurSmoth:" + curSmooth );
 
         // Calculate actual motion
         Vector3 movement = moveDirection * moveSpeed;
