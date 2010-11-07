@@ -86,9 +86,16 @@ public class ThirdPersonController : MonoBehaviour
 
     #region Functions
     //sets the move direction to current Forward vector in world space
-    void Awake()  {
-
+    void Awake()  {       
        moveDirection = transform.TransformDirection(Vector3.forward);
+    }
+
+    
+    void OnEnable()
+    {
+        //tells character controller what forward direction was last (because flying controller took over and had own forward direction)
+        PlayerManager pmanager = GetComponent<PlayerManager>();
+        moveDirection = pmanager.MoveDirection();
     }
 
     public void HidePlayer()  {
@@ -330,7 +337,7 @@ public class ThirdPersonController : MonoBehaviour
 
     if ((collisionFlags & CollisionFlags.CollidedBelow) != 0)
     {
-        Debug.Log("Collided Below");
+       // Debug.Log("Collided Below");
     }
    // Debug.Log(collisionFlags);
  	
