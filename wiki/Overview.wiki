@@ -14,7 +14,7 @@ I will also provide a separate zip file for the editable resource files like pho
 ----
 
 ==Things to do==
- * make timer look better with custom GUI skin
+ * create pumpkin bomb model with explosions
  * create collectible items
  * create basic GUI windows and layout for start (title, level select, pause)
  * texture main character better
