@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerBomb : MonoBehaviour
 {
-
+    public GameObject explosionParticles;
 
     // Use this for initialization
     void Start()
@@ -16,4 +16,20 @@ public class PlayerBomb : MonoBehaviour
     {
 
     }
+
+    void OnCollisionEnter(Collision col)
+{
+
+    if (col.gameObject.tag != "Player")
+    {
+        ContactPoint collisionPoint = col.contacts[0];
+        Quaternion collisionRot = Quaternion.Euler(collisionPoint.normal);
+
+
+
+        Instantiate(explosionParticles, transform.position, collisionRot);
+        Destroy(this.gameObject);
+    }
+
+}
 }

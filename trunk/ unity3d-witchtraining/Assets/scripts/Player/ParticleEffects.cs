@@ -27,7 +27,7 @@ public class ParticleEffects : MonoBehaviour
         //Player effects
         if (flyingController.MoveSpeed() >= (flyingController.flyingSpeed * flyingController.runFlyMultiplier - 1) && !isflyingFast)
         {
-            fastPlayerParticleSystem = (GameObject)Instantiate(playerRunParticles, playerGO.transform.position, playerGO.transform.rotation);
+            fastPlayerParticleSystem = (GameObject)Instantiate(playerRunParticles, (playerGO.transform.position + new Vector3(0,0,-1)), playerGO.transform.rotation);
             fastPlayerParticleSystem.transform.parent = playerGO.transform;
             
             Debug.Log("Instantiate");
