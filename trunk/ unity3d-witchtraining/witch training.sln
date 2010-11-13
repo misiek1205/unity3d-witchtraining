@@ -1,7 +1,6 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-
-Project("{D1DA29CB-19A6-8785-BEC7-6F617E72B3F4}") = "witch training", "witch training.csproj", "{B045E84E-BFC2-2560-E09D-E03E750E2265}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "witch training", "witch training.csproj", "{B045E84E-BFC2-2560-E09D-E03E750E2265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,5 +16,4 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	
 EndGlobal

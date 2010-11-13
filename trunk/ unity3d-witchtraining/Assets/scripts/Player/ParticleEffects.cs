@@ -27,10 +27,11 @@ public class ParticleEffects : MonoBehaviour
         //Player effects
         if (flyingController.MoveSpeed() >= (flyingController.flyingSpeed * flyingController.runFlyMultiplier - 1) && !isflyingFast)
         {
+            fastPlayerParticleSystem = null;
             fastPlayerParticleSystem = (GameObject)Instantiate(playerRunParticles, (playerGO.transform.position + new Vector3(0,0,-1)), playerGO.transform.rotation);
             fastPlayerParticleSystem.transform.parent = playerGO.transform;
             
-            Debug.Log("Instantiate");
+           // Debug.Log("Instantiate");
 
             isflyingFast = true;
         
@@ -49,28 +50,42 @@ public class ParticleEffects : MonoBehaviour
             FadeOutParticleSystem();
         }
 
-        //Debug.Log(fastPlayerParticleSystem);
-       // Debug.Log(flyingController.MoveSpeed() + " new speed:" + (flyingController.flyingSpeed * flyingController.runFlyMultiplier - 2));
 
     }
 
    private void FadeOutParticleSystem()
    {
 
-       
-       fastPlayerParticleSystem.particleEmitter.minEmission -= Time.deltaTime * 10;
-       fastPlayerParticleSystem.particleEmitter.maxEmission -= Time.deltaTime * 10;
-       fastPlayerParticleSystem.particleEmitter.minEnergy -= Time.deltaTime * 10;
-       fastPlayerParticleSystem.particleEmitter.maxEnergy -= Time.deltaTime * 10;
-       
 
        if (fastPlayerParticleSystem.particleEmitter.maxEmission <= 1)
        {
-           Debug.Log(fastPlayerParticleSystem.particleEmitter.minEmission);
+
+           fastPlayerParticleSystem.particleEmitter.minEmission = 0;
+           fastPlayerParticleSystem.particleEmitter.maxEmission = 0;
+           fastPlayerParticleSystem.particleEmitter.minEnergy = 0;
+           fastPlayerParticleSystem.particleEmitter.maxEnergy = 0;
 
            fastPlayerParticleSystem.particleEmitter.emit = false;
-           //Destroy(fastPlayerParticleSystem);
            fadeOutPlayerParticles = false;
        }
+       else
+       {
+           if (fastPlayerParticleSystem.particleEmitter.minEmission > 0)
+                fastPlayerParticleSystem.particleEmitter.minEmission -= Time.deltaTime * 10;
+
+          if ( fastPlayerParticleSystem.particleEmitter.maxEmission > 0)
+           fastPlayerParticleSystem.particleEmitter.maxEmission -= Time.deltaTime * 10;
+
+          if (fastPlayerParticleSystem.particleEmitter.minEnergy > 0)
+           fastPlayerParticleSystem.particleEmitter.minEnergy -= Time.deltaTime * 10;
+
+          if (fastPlayerParticleSystem.particleEmitter.maxEnergy > 0) 
+           fastPlayerParticleSystem.particleEmitter.maxEnergy -= Time.deltaTime * 10;
+
+
+       }
+
+
+
    }
 }

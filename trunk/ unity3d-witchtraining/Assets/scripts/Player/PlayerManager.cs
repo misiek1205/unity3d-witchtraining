@@ -25,9 +25,9 @@ public class PlayerManager : MonoBehaviour
 
 
         if (isFlying)
-            _moveDirection = GetComponent<ThirdPersonFlyingController>().MoveDirection();        
-        else 
-           _moveDirection = GetComponent<ThirdPersonController>().MoveDirection();
+            _moveDirection = thirdPersonFlyingController.MoveDirection();        
+        else
+            _moveDirection = thirdPersonController.MoveDirection();
 
 
       

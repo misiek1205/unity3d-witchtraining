@@ -108,12 +108,14 @@ public class CameraManager : MonoBehaviour
                     _mainCamera.GetComponent<PlayerCameraFlying>().height = Mathf.Lerp(oldHeight, newHeight, timerDelta);
                     _mainCamera.GetComponent<PlayerCameraFlying>().distance = Mathf.Lerp(oldDistance, newDistance, timerDelta);
                     _mainCamera.GetComponent<PlayerCameraFlying>().rotationDamping = Mathf.Lerp(oldRDamping, newRDamping, timerDelta);
+                    _mainCamera.GetComponent<PlayerCameraFlying>().heightDamping = Mathf.Lerp(oldHDamping, newHDamping, timerDelta);
                 }
                 else if (_cameraEnum == ActiveCamera.PlayerGrounded)
                 {
                     _mainCamera.GetComponent<PlayerCamera>().height = Mathf.Lerp(oldHeight, newHeight, timerDelta);
                     _mainCamera.GetComponent<PlayerCamera>().distance = Mathf.Lerp(oldDistance, newDistance, timerDelta);
                     _mainCamera.GetComponent<PlayerCamera>().rotationDamping = Mathf.Lerp(oldRDamping, newRDamping, timerDelta);
+                    _mainCamera.GetComponent<PlayerCamera>().heightDamping = Mathf.Lerp(oldHDamping, newHDamping, timerDelta);
                 }
                 
             }

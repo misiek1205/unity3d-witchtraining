@@ -4,7 +4,7 @@ using System.Collections;
 public class GUIManager : MonoBehaviour
 {
 
-    private static HUDTimer _hudTimer;
+   // private static HUDTimer _hudTimer;
 
     public enum GUIState {
         TitleScreen,
@@ -74,7 +74,7 @@ public class GUIManager : MonoBehaviour
             if (!GetComponent<HUDTimer>())
                 {
                     this.gameObject.AddComponent<HUDTimer>();
-                    _hudTimer = GetComponent<HUDTimer>();
+                   // _hudTimer = GetComponent<HUDTimer>();
                 }
                 
 

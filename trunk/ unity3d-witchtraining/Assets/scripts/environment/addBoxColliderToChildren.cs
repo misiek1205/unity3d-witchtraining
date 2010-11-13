@@ -4,7 +4,7 @@ using System.Collections;
 public class addBoxColliderToChildren : MonoBehaviour
 {
 
-    private Component combineChildren;
+   // private Component combineChildren;
     private bool combineChildrenAttached = false;
 
     // Use this for initialization
@@ -34,7 +34,7 @@ public class addBoxColliderToChildren : MonoBehaviour
     {
         if (gameObject.GetComponent<MeshCollider>() && combineChildrenAttached == false)
         {
-            combineChildren = gameObject.GetComponent<CombineChildren>();
+            //combineChildren = gameObject.GetComponent<CombineChildren>();
             combineChildrenAttached = true;
         }
 
