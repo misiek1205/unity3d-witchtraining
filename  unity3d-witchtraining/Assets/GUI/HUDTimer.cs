@@ -19,12 +19,6 @@ public class HUDTimer : MonoBehaviour
         timerSkin = (GUISkin)Resources.Load("TimerGUISkin");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void TimerUpdate()
     {
         float minutes = Mathf.FloorToInt(Time.time / 60);
