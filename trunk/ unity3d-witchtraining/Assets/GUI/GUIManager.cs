@@ -4,8 +4,6 @@ using System.Collections;
 public class GUIManager : MonoBehaviour
 {
 
-   // private static HUDTimer _hudTimer;
-
     public enum GUIState {
         TitleScreen,
         Menu,
@@ -16,6 +14,8 @@ public class GUIManager : MonoBehaviour
         ChallengeInstructions,
         InGame
     };
+
+    private GameManager gameManager;
 
     //local variable that represents states
     private GUIState _state;
@@ -30,12 +30,39 @@ public class GUIManager : MonoBehaviour
     {
         //for now start as in game until other GUI screens can be done
         _state = GUIState.InGame;
+        gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+
+        //Pause button logic
+        //adds pause button component if paused, otherwise will remove it
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            if (gameManager.IsPaused() == true)
+                gameManager.IsPaused(false);
+            else
+                gameManager.IsPaused(true);
+        }
+
+        if (gameManager.IsPaused())
+        {
+            if (!GetComponent<PauseScreen>())
+            {
+                this.gameObject.AddComponent<PauseScreen>();
+                PauseFade("pause");
+            }
+        }
+        else
+        {
+            Destroy(this.gameObject.GetComponent<PauseScreen>());
+
+            //fading in/out pause
+            PauseFade("unpause");
+        }
 
     }
 
@@ -83,11 +110,25 @@ public class GUIManager : MonoBehaviour
                
                 break;
 
-         }   
+         }        
+      
 
+    } //end ONGUI()
 
-
-    }
    
+
+    private void PauseFade(string paused)
+        {
+            if (paused == "pause")
+            {
+                //Time.timeScale -= Time.deltaTime;
+                Time.timeScale = 0;
+            }
+            else
+            {
+               // Time.timeScale += Time.deltaTime;
+                Time.timeScale = 1;
+            }
+        }
 
 }
