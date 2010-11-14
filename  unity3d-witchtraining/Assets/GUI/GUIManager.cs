@@ -53,7 +53,7 @@ public class GUIManager : MonoBehaviour
             if (!GetComponent<PauseScreen>())
             {
                 this.gameObject.AddComponent<PauseScreen>();
-                PauseFade("pause");
+                Time.timeScale = 0;
             }
         }
         else
@@ -61,7 +61,7 @@ public class GUIManager : MonoBehaviour
             Destroy(this.gameObject.GetComponent<PauseScreen>());
 
             //fading in/out pause
-            PauseFade("unpause");
+            Time.timeScale = 1;
         }
 
     }
@@ -122,12 +122,12 @@ public class GUIManager : MonoBehaviour
             if (paused == "pause")
             {
                 //Time.timeScale -= Time.deltaTime;
-                Time.timeScale = 0;
+                
             }
             else
             {
                // Time.timeScale += Time.deltaTime;
-                Time.timeScale = 1;
+                
             }
         }
 
