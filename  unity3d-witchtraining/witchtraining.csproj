@@ -78,8 +78,6 @@
      <None Include="Assets\Standard Assets\Scripts\FPSWalker.js" />
      <Compile Include="Assets\Standard Assets\Scripts\MeshCombineUtility.cs" />
      <None Include="Assets\Standard Assets\Scripts\TimedObjectDestructor.js" />
-     <None Include="Assets\Standard Assets\Water\Sources\FX-Water Simple.shader" />
-     <Compile Include="Assets\Standard Assets\Water\Sources\WaterSimple.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
