@@ -25,8 +25,8 @@ public Transform animationGameObject;
     animationGameObject.animation["fly"].layer = 1;
     animationGameObject.animation["fly"].wrapMode = WrapMode.ClampForever;
 
-    animationGameObject.animation["elevate"].layer = 1;
-    animationGameObject.animation["lower"].layer = 1;
+   // animationGameObject.animation["elevate"].layer = 1;
+   // animationGameObject.animation["lower"].layer = 1;
 
 
     animationGameObject.animation["idle"].wrapMode = WrapMode.Loop;
@@ -92,7 +92,7 @@ private void FlyingAnimations()
     animationGameObject.animation.Blend("jump", 0.0f, 0.3f);
     animationGameObject.animation.Blend("fly", 1.0f, .3f);
 
-
+    /*
     if (Input.GetButton("Rise"))
     {
       animationGameObject.animation.CrossFade("elevate");
@@ -103,7 +103,7 @@ private void FlyingAnimations()
       animationGameObject.animation.CrossFade("lower");
     }
 
-
+    */
 
 }
 
