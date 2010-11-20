@@ -63,8 +63,6 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
     void Update() {
 
-
-
         if (characterController.IsJumping() && !isFlying || characterController.IsFalling() )
         {
 
@@ -123,9 +121,10 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
         //--Find out the movement
         float v = Input.GetAxisRaw("Vertical");
-        float h = Input.GetAxisRaw("Horizontal");
+        //float h = Input.GetAxisRaw("Horizontal");
 
-        Vector3 targetDirection2 = h * transform.right + v * transform.forward;
+        Vector3 targetDirection2 = v * transform.forward;
+        //Vector3 targetDirection2 = h * transform.height + v * transform.forward;
 
         // Choose target speed
         //* We want to support analog input but make sure you cant walk faster diagonally than just forward or sideways
@@ -185,14 +184,39 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
 
         
-            // ----------------Elevate Controls      ---------------------//
-        float elevateTargetSpeed = 0.0f;
+            // ----------------FLying rotation Controls      ---------------------//
+       // float elevateTargetSpeed = 0.0f;
        // Vector3 riseAmount = new Vector3(0.0f, 7.0f * Time.deltaTime, 0.0f);
        // Vector3 descendAmount = new Vector3(0.0f, -7.0f * Time.deltaTime, 0.0f);
 
         Vector3 elevateDirection = Vector3.zero;
 
-        
+        //for mouse movement
+        float yawMouse = Input.GetAxis("Mouse X");
+        float pitchMouse = Input.GetAxis("Mouse Y");        
+        Vector3 targetFlyRotation = Vector3.zero;
+
+        Screen.lockCursor = true;
+       
+        if (Mathf.Abs(yawMouse) > 0.1f || Mathf.Abs(pitchMouse) > 0.1f) 
+        {
+           // Debug.Log("yawMouse:" + yawMouse + "  pitchMouse:" + pitchMouse);
+
+            targetFlyRotation = yawMouse * transform.right + pitchMouse * transform.up;
+            targetFlyRotation.Normalize();
+
+            Debug.Log(targetFlyRotation);
+
+            targetFlyRotation *= Time.deltaTime * 3.0f;
+
+            moveDirection += targetFlyRotation;
+
+            //does the actual rotation on the object
+            transform.rotation = Quaternion.LookRotation(moveDirection);
+
+        }
+
+        /*
         if (Input.GetButton("Rise"))
             {
 
@@ -231,8 +255,8 @@ public class ThirdPersonFlyingController : MonoBehaviour
        
         
         collisionFlags = controller.Move(elevateMovement);
-
-        }
+        */
+    }
 
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
