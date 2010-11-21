@@ -115,9 +115,14 @@ public class ThirdPersonFlyingController : MonoBehaviour
         moveDirection = moveDirection.normalized;
 
         //Does the final rotation along as there is being input pressed (targetDirection)
+        /*
         if (targetDirection != Vector3.zero)
+        {
             transform.rotation = Quaternion.LookRotation(moveDirection);
 
+
+        }
+         * */
 
         //--Find out the movement
         float v = Input.GetAxisRaw("Vertical");
@@ -177,7 +182,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
 
 
-        collisionFlags = controller.Move(movement);
+       collisionFlags = controller.Move(movement);
 
            
 
@@ -185,12 +190,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
         
             // ----------------FLying rotation Controls      ---------------------//
-       // float elevateTargetSpeed = 0.0f;
-       // Vector3 riseAmount = new Vector3(0.0f, 7.0f * Time.deltaTime, 0.0f);
-       // Vector3 descendAmount = new Vector3(0.0f, -7.0f * Time.deltaTime, 0.0f);
-
-        Vector3 elevateDirection = Vector3.zero;
-
+      
         //for mouse movement
         float yawMouse = Input.GetAxis("Mouse X");
         float pitchMouse = Input.GetAxis("Mouse Y");        
@@ -200,62 +200,37 @@ public class ThirdPersonFlyingController : MonoBehaviour
        
         if (Mathf.Abs(yawMouse) > 0.1f || Mathf.Abs(pitchMouse) > 0.1f) 
         {
-           // Debug.Log("yawMouse:" + yawMouse + "  pitchMouse:" + pitchMouse);
-
             targetFlyRotation = yawMouse * transform.right + pitchMouse * transform.up;
             targetFlyRotation.Normalize();
-
-            Debug.Log(targetFlyRotation);
-
             targetFlyRotation *= Time.deltaTime * 3.0f;
 
-            moveDirection += targetFlyRotation;
+            
+            //limit x rotation if looking too much up or down
+            //Log out the limitX value for this to make sense
+            float limitX = Quaternion.LookRotation(moveDirection + targetFlyRotation).eulerAngles.x;
 
-            //does the actual rotation on the object
-            transform.rotation = Quaternion.LookRotation(moveDirection);
+
+                //70 sets the rotation limit in the down direction
+                //290 sets limit for up direction
+            if (limitX < 90 && limitX > 70 || limitX > 270 && limitX < 290) 
+            {
+                Debug.Log("restrict motion");
+            }
+            else
+            {
+                moveDirection += targetFlyRotation;
+               //does the actual rotation on the object if no limits are breached
+                transform.rotation = Quaternion.LookRotation(moveDirection);
+            }
+
+            
+         
 
         }
 
-        /*
-        if (Input.GetButton("Rise"))
-            {
-
-                elevateDirection = Vector3.up;    
-                
-                if (Input.GetButton("Run"))
-                {
-                    elevateTargetSpeed = elevateAmount * elevateMultipler;
-                }
-                else
-                {
-                    elevateTargetSpeed = elevateAmount;
-                }         
-
-            }
 
 
-        if (Input.GetButton("Descend"))
-            {
-                elevateDirection = Vector3.down;
 
-                if (Input.GetButton("Run"))
-                {
-                    elevateTargetSpeed = elevateAmount * elevateMultipler;
-                }
-                else
-                {
-                    elevateTargetSpeed = elevateAmount;
-                }
-                
-            }
-
-
-        elevateSpeed = Mathf.Lerp(elevateSpeed, elevateTargetSpeed, curSmooth);
-        Vector3 elevateMovement = elevateSpeed * elevateDirection;
-       
-        
-        collisionFlags = controller.Move(elevateMovement);
-        */
     }
 
 
