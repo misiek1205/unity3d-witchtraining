@@ -4,10 +4,12 @@ using System.Collections;
 public class PlayerBomb : MonoBehaviour
 {
     public GameObject explosionParticles;
-
+	private PlayerBombThrowing bombThrowingScript;
+	
     // Use this for initialization
     void Start()
     {
+		bombThrowingScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBombThrowing>();
 
     }
 
@@ -20,7 +22,7 @@ public class PlayerBomb : MonoBehaviour
     void OnCollisionEnter(Collision col)
 {
 
-    if (col.gameObject.tag != "Player")
+    if (col.gameObject.tag != "Player" && !(bombThrowingScript.IsHoldingBomb()))
     {
         ContactPoint collisionPoint = col.contacts[0];
         Quaternion collisionRot = Quaternion.Euler(collisionPoint.normal);

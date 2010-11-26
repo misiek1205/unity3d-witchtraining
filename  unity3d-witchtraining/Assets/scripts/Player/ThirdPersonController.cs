@@ -79,8 +79,9 @@ public class ThirdPersonController : MonoBehaviour
     private float lastGroundedTime = 0.0f;
     private bool isControllable = true;
     private bool areKeysPressed = false;
-
     private bool isFalling = false;
+	
+	private PlayerManager pmanager;
 
     #endregion
 
@@ -88,13 +89,14 @@ public class ThirdPersonController : MonoBehaviour
     //sets the move direction to current Forward vector in world space
     void Awake()  {       
        moveDirection = transform.TransformDirection(new Vector3(1, 1, 1));
+	   pmanager = GetComponent<PlayerManager>();
     }
 
     
     void OnEnable()
     {
         //tells character controller what forward direction was last (because flying controller took over and had own forward direction)
-        PlayerManager pmanager = GetComponent<PlayerManager>();
+        
         moveDirection = pmanager.MoveDirection();
     }
 
@@ -193,6 +195,7 @@ public class ThirdPersonController : MonoBehaviour
             }
 
             moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
+			pmanager.MoveSpeed(moveSpeed);
 
             // Reset walk time start when we slow down
             if (moveSpeed < walkSpeed * 0.3)
@@ -207,6 +210,9 @@ public class ThirdPersonController : MonoBehaviour
 
             if (isMoving)               
                     inAirVelocity += targetDirection.normalized * Time.deltaTime * inAirControlAcceleration;
+			
+			//assigning to player manager for use when switching to flying
+			pmanager.InAirVelocity(inAirVelocity.magnitude);
         }
 
 
@@ -384,10 +390,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         return verticalSpeed;
     }
-    public float GetSpeed()
-    {
-        return moveSpeed;
-    }
+
     public bool IsJumping()
     {
       return jumping; 
@@ -434,7 +437,11 @@ public class ThirdPersonController : MonoBehaviour
     {
         return moveDirection;
     }
-
+	
+	public float GetSpeed()
+	{
+	return moveSpeed;	
+	}
 
     
     #endregion

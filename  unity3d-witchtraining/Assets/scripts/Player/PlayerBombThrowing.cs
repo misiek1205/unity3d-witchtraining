@@ -64,10 +64,11 @@ public class PlayerBombThrowing : MonoBehaviour
             //bool is for making sure the bomb's position doesn't veer when moving around
             // will allow KeepBombPosition to function
             isHoldingBomb = true;
+			
 
         }
         
-        if (Input.GetButtonUp("Bomb") && canThrowBomb)
+        if (Input.GetButtonUp("Bomb") && canThrowBomb && isHoldingBomb)
         {
             //delete bomb object that is being held
             Destroy(bombTemp);
@@ -75,13 +76,12 @@ public class PlayerBombThrowing : MonoBehaviour
 
             animationGameObject.animation.Play("throwRelease");
 
-            //Debug.Log("asdf");
-
+           
             //calculate power of bomb
             bombTimerLength = Time.time - bombPowerTimer;
 
             //instantiate and throw the bomb
-            GameObject bomb = (GameObject)Instantiate(bombPrefab, rightHand.transform.position, Quaternion.LookRotation(_player.MoveDirection()));
+            GameObject bomb = (GameObject)Instantiate(bombPrefab, rightHand.transform.position, Quaternion.LookRotation(_player.LookDirection()));
 
             //make sure the strongest it can get is only after 3 seconds and no more
             if (bombTimerLength > 3)
@@ -90,7 +90,7 @@ public class PlayerBombThrowing : MonoBehaviour
             }
             else
             {
-                bomb.rigidbody.velocity = _player.MoveDirection() * 50.0f * bombTimerLength;
+                bomb.rigidbody.velocity = _player.LookDirection() * 50.0f * bombTimerLength;
             }
 
             canThrowBomb = false;
@@ -109,9 +109,12 @@ public class PlayerBombThrowing : MonoBehaviour
         
     }
 
-
     private void KeepBombPosition()
     {
         bombTemp.gameObject.transform.position = rightHand.transform.position;
     }
+	
+	public bool IsHoldingBomb() { 
+		return isHoldingBomb ;
+	}
 }

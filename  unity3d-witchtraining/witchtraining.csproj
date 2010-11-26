@@ -57,9 +57,11 @@
      <Compile Include="Assets\scripts\environment\addBoxColliderToChildren.cs" />
      <Compile Include="Assets\scripts\environment\BlobShadow.cs" />
      <Compile Include="Assets\scripts\Player\HairPhysics.cs" />
+     <Compile Include="Assets\scripts\Player\HeadLookController.cs" />
      <Compile Include="Assets\scripts\Player\ParticleEffects.cs" />
      <Compile Include="Assets\scripts\Player\PlayerBomb.cs" />
      <Compile Include="Assets\scripts\Player\PlayerBombThrowing.cs" />
+     <Compile Include="Assets\scripts\Player\PlayerLookTarget.cs" />
      <Compile Include="Assets\scripts\Player\PlayerManager.cs" />
      <Compile Include="Assets\scripts\Player\PlayerSounds.cs" />
      <Compile Include="Assets\scripts\Player\ThirdPersonController.cs" />
@@ -70,6 +72,7 @@
      <None Include="Assets\Standard Assets\Blob-Shadow\ShadowProjection.shader" />
      <Compile Include="Assets\Standard Assets\Camera Scripts\MouseLook.cs" />
      <None Include="Assets\Standard Assets\Camera Scripts\MouseOrbit.js" />
+     <None Include="Assets\Standard Assets\Camera Scripts\MouseOrbitVertical.js" />
      <None Include="Assets\Standard Assets\Camera Scripts\SmoothFollow-flying.js" />
      <None Include="Assets\Standard Assets\Camera Scripts\SmoothFollow.js" />
      <None Include="Assets\Standard Assets\Camera Scripts\SmoothLookAt.js" />
