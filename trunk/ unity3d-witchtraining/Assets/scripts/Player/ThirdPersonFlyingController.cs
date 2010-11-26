@@ -30,7 +30,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
     // The current move direction in x-z
     private Vector3 moveDirection = Vector3.zero;
     // The current x-z move speed
-    private float moveSpeed = 0.0f;
+    private float moveSpeed;
     public float rotateSpeed = 100.0f;
     public float speedSmoothing = 10.0f;
     private float elevateSpeed = 0.0f;
@@ -41,7 +41,8 @@ public class ThirdPersonFlyingController : MonoBehaviour
     //alternate camera when in fly mode
     //private PlayerCamera normalCameraSmoothFollow;
     private CameraManager camManager;
-       
+ 	private PlayerManager playerManager;
+	public GameObject lookObject;
 
     // The last collision flags returned from controller.Move
     private CollisionFlags collisionFlags;
@@ -51,16 +52,20 @@ public class ThirdPersonFlyingController : MonoBehaviour
         characterController = GetComponent<ThirdPersonController>();
         controller = GetComponent<CharacterController>();
 
-        //axes = GetComponent<SmoothInputAxes>();
-
-
         moveDirection = transform.TransformDirection(Vector3.forward);
-
+		
+		
+		
         //assign to Component in main camera
        // normalCameraSmoothFollow = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerCamera>();
         camManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraManager>();
+		playerManager = GetComponent<PlayerManager>();
+		
+		Screen.lockCursor = true;
+		
     }
-
+	
+	
     void Update() {
 
         if (characterController.IsJumping() && !isFlying || characterController.IsFalling() )
@@ -89,10 +94,17 @@ public class ThirdPersonFlyingController : MonoBehaviour
         characterController.enabled = false;
         
         moveDirection = transform.TransformDirection(Vector3.forward);
-
+		
+		
         //tells camera manager to update camera to flying version
         camManager.CameraChanged("PlayerFly");
+		
+		playerManager.LookDirection( new Vector3(0 ,0, 1));
         
+		
+		moveSpeed = playerManager.MoveSpeed();
+		Debug.Log(moveSpeed);
+		
     }
 
 
@@ -174,6 +186,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
         //sets the movement after all the scenarios have been calculated
         moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
+		playerManager.MoveSpeed(moveSpeed);
         //Debug.Log("Move Speed:" + moveSpeed + " Target Speed:" + targetSpeed + " CurSmoth:" + curSmooth );
 
         // Calculate actual motion
@@ -214,16 +227,22 @@ public class ThirdPersonFlyingController : MonoBehaviour
                 //290 sets limit for up direction
             if (limitX < 90 && limitX > 70 || limitX > 270 && limitX < 290) 
             {
-                Debug.Log("restrict motion");
+                //Debug.Log("restrict motion");
             }
             else
             {
                 moveDirection += targetFlyRotation;
                //does the actual rotation on the object if no limits are breached
                 transform.rotation = Quaternion.LookRotation(moveDirection);
+				
+				
             }
 
             
+			Vector3 newLookDirection = lookObject.transform.position -  transform.position;
+			newLookDirection.Normalize();
+		
+			playerManager.LookDirection(newLookDirection);
          
 
         }
@@ -257,8 +276,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
 
    }
-
-
+	
     public Vector3 MoveDirection()
     {
         return moveDirection;
