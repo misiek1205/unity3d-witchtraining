@@ -25,7 +25,7 @@ public class ParticleEffects : MonoBehaviour
     void Update()
     {
         //Player effects
-        if (flyingController.MoveSpeed() >= (flyingController.flyingSpeed * flyingController.runFlyMultiplier - 1) && !isflyingFast)
+        if (flyingController.MoveSpeed() > (flyingController.flyingSpeed * flyingController.runFlyMultiplier - 1) && !isflyingFast)
         {
             fastPlayerParticleSystem = null;
             fastPlayerParticleSystem = (GameObject)Instantiate(playerRunParticles, (playerGO.transform.position + new Vector3(0,0,-1)), playerGO.transform.rotation);
@@ -40,7 +40,6 @@ public class ParticleEffects : MonoBehaviour
         if (flyingController.MoveSpeed() <= (flyingController.flyingSpeed * flyingController.runFlyMultiplier - 1) && isflyingFast)
         {
             fadeOutPlayerParticles = true;
-            //Destroy(fastPlayerParticleSystem);
             isflyingFast = false;
         }
 
@@ -66,7 +65,11 @@ public class ParticleEffects : MonoBehaviour
            fastPlayerParticleSystem.particleEmitter.maxEnergy = 0;
 
            fastPlayerParticleSystem.particleEmitter.emit = false;
+			
+			Destroy(fastPlayerParticleSystem);
+			
            fadeOutPlayerParticles = false;
+			
        }
        else
        {

@@ -134,14 +134,7 @@ public class ThirdPersonController : MonoBehaviour
             areKeysPressed = true;
             
 
-        // Are we moving backwards or looking backwards
-       /* if (v < -0.2)
-            movingBack = true;
-        else
-            movingBack = false;
-        * */
-
-        bool wasMoving = isMoving;
+          bool wasMoving = isMoving;
         isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
 
         // Target direction relative to the camera
@@ -183,7 +176,7 @@ public class ThirdPersonController : MonoBehaviour
             // Pick speed modifier
             if (Input.GetButton("Run"))
             {
-                targetSpeed *= runSpeed;
+                targetSpeed *= runSpeed;				
             }
             else if (Time.time - trotAfterSeconds > walkTimeStart)
             {
@@ -191,7 +184,7 @@ public class ThirdPersonController : MonoBehaviour
             }
             else
             {
-                targetSpeed *= walkSpeed;
+                targetSpeed *= walkSpeed;				
             }
 
             moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
@@ -310,6 +303,7 @@ public class ThirdPersonController : MonoBehaviour
 		{
 			jumping = false;
 			SendMessage("DidLand", SendMessageOptions.DontRequireReceiver);
+				
 		}
 	}
 
