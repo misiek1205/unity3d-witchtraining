@@ -3,40 +3,39 @@ using System.Collections;
 
 public class PlayerSounds : MonoBehaviour
 {
-
+	
     private AudioSource audioSource;
     private Animation playerAnimations;
 
-    public AudioClip walkSound;
+    public AudioClip hitGroundSound;
+	public AudioClip walkSound;
+	public AudioClip runSound;
 
-    public Transform playerModelObject;
-
+    public GameObject animationObject;
+	private ThirdPersonController thirdPersonController;
+	
+	private bool isRunning = false;
+	private bool isWalking = false;
+	private bool isIdle = false;
+	
     // Use this for initialization
     void Start()
     {
-        //create audio source component for sounds to play
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.loop = false;
-        audioSource.playOnAwake = false;
-
-
-       
-        //create animation event
-               
-        AnimationEvent walkSoundEvent = new AnimationEvent();
-        walkSoundEvent.functionName = "WalkingSounds";
-        walkSoundEvent.time = 139.0f;
-
-
-        playerModelObject.GetComponent<Animation>()["walk"].clip.AddEvent(walkSoundEvent);
-       
+      
+        
+		Debug.Log(animationObject.animation["walk"].name);
+		//playerManager = GetComponent<PlayerManager>();
+		thirdPersonController = GetComponent<ThirdPersonController>();
     }
 
-
-    public void WalkingSounds()
-    {
-        animation.Rewind();
-        audioSource.PlayOneShot(walkSound);            
-        Debug.Log("Walk Sound Fired");
-    }
+		
+	
+	public void DidLand () {
+		audio.pitch = 1;
+		audio.
+    audio.PlayOneShot(hitGroundSound);
+	}
+	
+	
+	
 }

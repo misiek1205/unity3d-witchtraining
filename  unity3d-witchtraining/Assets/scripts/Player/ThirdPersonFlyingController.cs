@@ -24,9 +24,9 @@ public class ThirdPersonFlyingController : MonoBehaviour
    // private float a = 0.0f;
 
 
-   // private bool isMoving = false;
+
     // The camera doesnt start following the target immediately but waits for a split second to avoid too much waving around.
-    //private float lockCameraTimer = 0.0f;
+
     // The current move direction in x-z
     private Vector3 moveDirection = Vector3.zero;
     // The current x-z move speed
@@ -103,7 +103,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
         
 		
 		moveSpeed = playerManager.MoveSpeed();
-		Debug.Log(moveSpeed);
+		
 		
     }
 
@@ -119,11 +119,12 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
         //sets target direction by making a vector with the keys that you have pressed.
         // the 1.0f is the vertical value. If you try to turn with only h being pressed, it will act funny
-        Vector3 targetDirection = Input.GetAxis("Horizontal") * transform.right + 0.3f * transform.forward;
+        Vector3 targetDirection = /*Input.GetAxis("Horizontal") * transform.right + */ 0.3f * transform.forward;
        targetDirection = targetDirection.normalized; 
 
        //creates a vector that will smoothly rotate toward destination. Normalized for good measure    
-        moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, rotateSpeed * Mathf.Deg2Rad * Time.deltaTime, 1000);
+        moveDirection = Vector3.Lerp(moveDirection, targetDirection, rotateSpeed * Mathf.Deg2Rad * Time.deltaTime);
+		//moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, rotateSpeed * Mathf.Deg2Rad * Time.deltaTime, 1000);
         moveDirection = moveDirection.normalized;
 
         //Does the final rotation along as there is being input pressed (targetDirection)
@@ -138,16 +139,17 @@ public class ThirdPersonFlyingController : MonoBehaviour
 
         //--Find out the movement
         float v = Input.GetAxisRaw("Vertical");
-        //float h = Input.GetAxisRaw("Horizontal");
+        float h = Input.GetAxisRaw("Horizontal");
 
-        Vector3 targetDirection2 = v * transform.forward;
-        //Vector3 targetDirection2 = h * transform.height + v * transform.forward;
+        //Vector3 targetDirection2 = v * transform.forward;
+        //Vector3 targetDirection2 = h * transform.right + v * transform.forward;
 
         // Choose target speed
         //* We want to support analog input but make sure you cant walk faster diagonally than just forward or sideways
-        float targetSpeed = Mathf.Min(targetDirection2.magnitude, 1.0f);
+        //float targetDirection3 = Mathf.Min(targetDirection2.magnitude, 1.0f);;
+		float targetSpeed;
 
-        if (v < 0.1f && v > -0.1f)
+        if (Mathf.Abs(v) < 0.1f && Mathf.Abs(h) < 0.1f )
         {
             targetSpeed = 0;
             isFlyingBackward = false;
@@ -193,7 +195,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
         Vector3 movement = moveDirection * moveSpeed;
         movement *= Time.deltaTime;
 
-
+		
 
        collisionFlags = controller.Move(movement);
 

@@ -10,8 +10,16 @@ private ThirdPersonController characterController;
 private ThirdPersonFlyingController flyingController;
 public Transform animationGameObject;	
 	
+	//used for Animation Events on player
+	private enum AnimationStatus{Idle, Run, Walk, Jump} ;
+	
+	AnimationStatus currentStatus;
+
     void Start ()
 {
+		currentStatus = AnimationStatus.Idle;
+
+		
 	// By default loop all animations
    // animationGameObject.animation.wrapMode = WrapMode.Loop;
 
@@ -55,12 +63,14 @@ public Transform animationGameObject;
     characterController = GetComponent<ThirdPersonController>();
     flyingController = GetComponent<ThirdPersonFlyingController>();
     
+
 }
 
 
 void Update ()
 {
     
+		
 
     if (flyingController.IsFlying())
     {
@@ -78,6 +88,8 @@ void Update ()
             GroundedAnimations();        
        
         }
+		
+
     
 }
 
@@ -92,18 +104,6 @@ private void FlyingAnimations()
     animationGameObject.animation.Blend("jump", 0.0f, 0.3f);
     animationGameObject.animation.Blend("fly", 1.0f, .3f);
 
-    /*
-    if (Input.GetButton("Rise"))
-    {
-      animationGameObject.animation.CrossFade("elevate");
-    }
-
-    if (Input.GetButton("Descend"))
-    {
-      animationGameObject.animation.CrossFade("lower");
-    }
-
-    */
 
 }
 
@@ -121,6 +121,7 @@ private void GroundedAnimations()
     if (characterController.GetSpeed() >= (characterController.GetRunSpeed() - 1))
     {
         animationGameObject.animation.CrossFade("run");
+		currentStatus = AnimationStatus.Run;
 
         //fade out walk
         animationGameObject.animation.Blend("walk", 0.0f, 0.3f);
@@ -133,6 +134,7 @@ private void GroundedAnimations()
         if (characterController.AreMovingKeysDown())
         {
             animationGameObject.animation.CrossFade("walk");
+				currentStatus = AnimationStatus.Walk;
         }
         else
         {
@@ -150,6 +152,7 @@ private void GroundedAnimations()
     else
     {
         animationGameObject.animation.Blend("walk", 0.0f, 0.3f);
+			currentStatus = AnimationStatus.Idle;
        // animationGameObject.animation.Blend("run", 0.0f, 0.3f);
     }
 
@@ -164,7 +167,7 @@ private void GroundedAnimations()
 
         if (!characterController.HasJumpReachedApex() && characterController.IsJumping())
         {
-            animationGameObject.animation.CrossFade("jump", 0.2f);
+			animationGameObject.animation.CrossFade("jump", 0.2f);
             animationGameObject.animation.Blend("fall", 0.0f, 0.3f);
         }
 
@@ -175,7 +178,8 @@ private void GroundedAnimations()
 
         }
 
-
+		currentStatus = AnimationStatus.Jump;
+			
         animationGameObject.animation.Blend("walk", 0.0f, 0.1f);
         animationGameObject.animation.Blend("run", 0.0f, 0.1f);
 
@@ -183,7 +187,7 @@ private void GroundedAnimations()
 
 }
 
-
+	
 
 public void DidLand () {
     animationGameObject.animation.Play("land");
@@ -194,6 +198,11 @@ void PlayerFallDamage()
     animationGameObject.animation.Play("fallHit");
     Debug.Log("Hit Damage fired");
 }
+	
+	public string State()
+	{
+		return currentStatus.ToString();
+	}
 
 
 }//end class
