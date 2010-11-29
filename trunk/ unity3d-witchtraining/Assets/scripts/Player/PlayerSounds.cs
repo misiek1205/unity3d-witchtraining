@@ -8,26 +8,9 @@ public class PlayerSounds : MonoBehaviour
     private Animation playerAnimations;
 
     public AudioClip hitGroundSound;
-	public AudioClip walkSound;
-	public AudioClip runSound;
+	
 
     public GameObject animationObject;
-	private ThirdPersonController thirdPersonController;
-	
-	private bool isRunning = false;
-	private bool isWalking = false;
-	private bool isIdle = false;
-	
-    // Use this for initialization
-    void Start()
-    {
-      
-        
-		Debug.Log(animationObject.animation["walk"].name);
-		//playerManager = GetComponent<PlayerManager>();
-		thirdPersonController = GetComponent<ThirdPersonController>();
-    }
-
 		
 	
 	public void DidLand () {

@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private ThirdPersonFlyingController thirdPersonFlyingController;
 	private MouseOrbit mouseOrbit;
-	private PlayerLookTarget playerLookTarget;
+	//private PlayerLookTarget playerLookTarget;
 	private HeadLookController headLookController;
 	
     private Vector3 _moveDirection;
@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
         thirdPersonFlyingController = GetComponent<ThirdPersonFlyingController>();
 		
 		mouseOrbit = GameObject.Find("LookTarget").GetComponent<MouseOrbit>();
-		playerLookTarget = GetComponent<PlayerLookTarget>();
+		//playerLookTarget = GetComponent<PlayerLookTarget>();
 		headLookController = GetComponent<HeadLookController>();
 				
 		
