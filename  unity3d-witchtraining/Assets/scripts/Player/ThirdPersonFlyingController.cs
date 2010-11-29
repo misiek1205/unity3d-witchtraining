@@ -33,7 +33,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
     private float moveSpeed;
     public float rotateSpeed = 100.0f;
     public float speedSmoothing = 10.0f;
-    private float elevateSpeed = 0.0f;
+   // private float elevateSpeed = 0.0f;
     public float elevateAmount = 7.0f;
     //Class that smoothes input when pressed
     //private SmoothInputAxes axes;
