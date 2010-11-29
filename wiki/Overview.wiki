@@ -14,7 +14,7 @@ I will also provide a separate zip file for the editable resource files like pho
 ----
 
 ==Things to do==
- * create pumpkin bomb model with explosions
+ * Improve Title Screen
  * create collectible items
- * create basic GUI windows and layout for start (title, level select, pause)
- * texture main character better
+ * Create scoring system
+ * Create level select and first challenge
