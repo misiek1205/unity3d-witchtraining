@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GUI\TitleScreen.cs" ctype="Workbench">
+    <Files>
+      <File FileName="Assets\GUI\TitleScreen.cs" Line="45" Column="19" />
+      <File FileName="Assets\GUI\GUIManager.cs" Line="21" Column="27" />
+      <File FileName="Assets\scripts\Player\PlayerManager.cs" Line="31" Column="25" />
+      <File FileName="Assets\GUI\PauseScreen.cs" Line="16" Column="6" />
+      <File FileName="Assets\scripts\Player\PlayerLookTarget.cs" Line="26" Column="32" />
+      <File FileName="Assets\scripts\Player\PlayerSounds.cs" Line="13" Column="39" />
+      <File FileName="Assets\GUI\HUDTimer.cs" Line="43" Column="29" />
+      <File FileName="Assets\scripts\Player\ThirdPersonPlayerAnimation.cs" Line="16" Column="31" />
+      <File FileName="Assets\scripts\Player\PlayerAnimationEvents.cs" Line="24" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches ctype="PinnedWatchStore" />
+</Properties>
