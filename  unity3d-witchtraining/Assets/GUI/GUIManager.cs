@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/* GUIManager class -
+ * watches out for the different states that the game might be in. The enum structure stores all of the different states
+ * 
+ 
+ * 
+ * */
+
+
 public class GUIManager : MonoBehaviour
 {
 
@@ -77,11 +86,9 @@ public class GUIManager : MonoBehaviour
             case GUIState.InGame:
                 
             //create HUDTimer Object if it doesn't exist             
-            if (!GetComponent<HUDTimer>())
-                {
+            if (!GetComponent<HUDTimer>()) {
                     this.gameObject.AddComponent<HUDTimer>();
-                   // _hudTimer = GetComponent<HUDTimer>();
-                }
+            }
 			
 					//Pause button logic
         //adds pause button component if paused, otherwise will remove it

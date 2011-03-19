@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -23,9 +23,10 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_3_0_0;UNITY_3_0;UNITY_EDITOR;ENABLE_PROFILER;UNITY_WEBPLAYER;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_3_2_0;UNITY_3_2;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,48 +35,52 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    <Reference Include="Boo.Lang">
+      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Mono/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
-    <Reference Include="Boo.Lang, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67">
-      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\Mono\lib\mono\unity\Boo.Lang.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\Mono\lib\mono\unity\UnityScript.dll</HintPath>
+    <Reference Include="UnityScript">
+      <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Mono/lib/mono/unity/UnityScript.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GUI\GUIManager.cs" />
     <Compile Include="Assets\GUI\HUDTimer.cs" />
     <Compile Include="Assets\GUI\PauseScreen.cs" />
+    <Compile Include="Assets\GUI\TitleScreen.cs" />
     <Compile Include="Assets\scripts\Camera\CameraManager.cs" />
+    <Compile Include="Assets\scripts\Camera\MouseOrbit.cs" />
     <Compile Include="Assets\scripts\Camera\PlayerCamera.cs" />
     <Compile Include="Assets\scripts\Camera\PlayerCameraFlying.cs" />
     <Compile Include="Assets\scripts\environment\addBoxColliderToChildren.cs" />
     <Compile Include="Assets\scripts\environment\BlobShadow.cs" />
-    <Compile Include="Assets\scripts\GameManager.cs" />
     <Compile Include="Assets\scripts\Player\HairPhysics.cs" />
+    <Compile Include="Assets\scripts\Player\HeadLookController.cs" />
     <Compile Include="Assets\scripts\Player\ParticleEffects.cs" />
+    <Compile Include="Assets\scripts\Player\PlayerAnimationEvents.cs" />
     <Compile Include="Assets\scripts\Player\PlayerBomb.cs" />
     <Compile Include="Assets\scripts\Player\PlayerBombThrowing.cs" />
+    <Compile Include="Assets\scripts\Player\PlayerLookTarget.cs" />
     <Compile Include="Assets\scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\scripts\Player\PlayerSounds.cs" />
     <Compile Include="Assets\scripts\Player\ThirdPersonController.cs" />
     <Compile Include="Assets\scripts\Player\ThirdPersonFlyingController.cs" />
     <Compile Include="Assets\scripts\Player\ThirdPersonPlayerAnimation.cs" />
+    <Compile Include="Assets\scripts\GameManager.cs" />
     <Compile Include="Assets\scripts\iTween.cs" />
     <None Include="Assets\Standard Assets\Blob-Shadow\ShadowProjection.shader" />
     <Compile Include="Assets\Standard Assets\Camera Scripts\MouseLook.cs" />
-    <None Include="Assets\Standard Assets\Camera Scripts\MouseOrbit.js" />
     <None Include="Assets\Standard Assets\Camera Scripts\SmoothFollow-flying.js" />
     <None Include="Assets\Standard Assets\Camera Scripts\SmoothFollow.js" />
     <None Include="Assets\Standard Assets\Camera Scripts\SmoothLookAt.js" />
@@ -85,12 +90,8 @@
     <None Include="Assets\Standard Assets\Scripts\FPSWalker.js" />
     <Compile Include="Assets\Standard Assets\Scripts\MeshCombineUtility.cs" />
     <None Include="Assets\Standard Assets\Scripts\TimedObjectDestructor.js" />
-    <None Include="Assets\Standard Assets\Water\Sources\FX-Water Simple.shader" />
-    <Compile Include="Assets\Standard Assets\Water\Sources\WaterSimple.cs" />
-    <Compile Include="Assets\scripts\Player\CharacterLookController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	   Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
