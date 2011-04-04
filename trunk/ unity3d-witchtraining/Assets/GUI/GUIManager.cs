@@ -89,7 +89,13 @@ public class GUIManager : MonoBehaviour
             if (!GetComponent<HUDTimer>()) {
                     this.gameObject.AddComponent<HUDTimer>();
             }
-			
+
+            //health of character GUI
+            if (!GetComponent<HealthGUI>())
+            {
+                this.gameObject.AddComponent<HealthGUI>();
+            }
+
 					//Pause button logic
         //adds pause button component if paused, otherwise will remove it
         if (Input.GetKeyUp(KeyCode.P))

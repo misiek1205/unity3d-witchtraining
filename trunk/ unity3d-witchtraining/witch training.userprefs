@@ -1,14 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Player\CharacterLookController.cs" ctype="Workbench">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GUI\HealthGUI.cs">
     <Files>
+      <File FileName="Assets\GUI\HealthGUI.cs" Line="19" Column="39" />
       <File FileName="Assets\scripts\Player\PlayerBombThrowing.cs" Line="38" Column="70" />
       <File FileName="Assets\scripts\Camera\CameraManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Player\CharacterLookController.cs" Line="36" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches ctype="PinnedWatchStore" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
