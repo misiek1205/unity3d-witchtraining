@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
     private bool _isFlying;
 	private Vector3 _lookDirection;
 	private float _inAirVelocity;
+
+    private short _health;
 	
     // Use this for initialization
     void Start()
@@ -29,6 +31,8 @@ public class PlayerManager : MonoBehaviour
 		
 		_lookDirection = thirdPersonController.MoveDirection();
 		_inAirVelocity = 0.0f;
+
+        _health = 100;
     }
 
     // Update is called once per frame
@@ -80,5 +84,15 @@ public class PlayerManager : MonoBehaviour
 	public float MoveSpeed(){	return _moveSpeed;	}
 	
 	public bool IsFlying()	{	return _isFlying;	}
+
+    public void Health(short health) 
+    {
+        if (health > 100)
+           _health = 100;
+        else
+           _health = health; 
+    
+    }
+    public float Health() { return _health; }
 	
 }
