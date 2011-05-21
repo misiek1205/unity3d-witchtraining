@@ -33,7 +33,7 @@ public void walkAnimationEvent()
 	{
 		if (movingState == "Walk")
 		{
-		Debug.Log("Is walking");
+		//Debug.Log("Is walking");
 		audio.PlayOneShot(walkSound);
 		audio.volume = 0.4f;
 		}
@@ -43,7 +43,7 @@ public void walkAnimationEvent()
 	{
 		if (movingState == "Run")
 		{
-			Debug.Log("Is running");
+			//Debug.Log("Is running");
 			audio.PlayOneShot(runSound);
 			audio.volume = 0.5f;
 		}

@@ -333,7 +333,7 @@ public class ThirdPersonController : MonoBehaviour
         //Debug.Log("collided below");
 
     }
-
+     /*
 
     if ((collisionFlags & CollisionFlags.CollidedBelow) != 0)
     {
@@ -341,6 +341,7 @@ public class ThirdPersonController : MonoBehaviour
     }
    // Debug.Log(collisionFlags);
  	
+      * */
 }
     
     private void ApplyGravity()

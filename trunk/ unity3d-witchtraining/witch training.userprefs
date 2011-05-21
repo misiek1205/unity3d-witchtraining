@@ -1,10 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GUI\HealthGUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\environment\BlobShadow.cs">
     <Files>
-      <File FileName="Assets\GUI\HealthGUI.cs" Line="19" Column="39" />
-      <File FileName="Assets\scripts\Player\PlayerBombThrowing.cs" Line="38" Column="70" />
+      <File FileName="Assets\scripts\Player\ThirdPersonFlyingController.cs" Line="48" Column="1" />
+      <File FileName="Assets\scripts\Player\PlayerAnimationEvents.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\Camera\RadarCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\GUI\HealthGUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\Player\PlayerBombThrowing.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\Camera\CameraManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\environment\BlobShadow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
