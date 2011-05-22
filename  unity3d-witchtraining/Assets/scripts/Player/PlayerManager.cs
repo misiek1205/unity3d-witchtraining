@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
 	private float _inAirVelocity;
 
     private short _health;
+    private MouseFlying mouseAimFlying;
 	
     // Use this for initialization
     void Start()
@@ -25,6 +26,8 @@ public class PlayerManager : MonoBehaviour
         thirdPersonFlyingController = GetComponent<ThirdPersonFlyingController>();
 		
 		mouseOrbit = GameObject.Find("LookTarget").GetComponent<MouseOrbit>();
+        mouseAimFlying = GameObject.Find("LookTarget").GetComponent<MouseFlying>();
+
 		//playerLookTarget = GetComponent<PlayerLookTarget>();
 		headLookController = GetComponent<HeadLookController>();
 				
@@ -45,21 +48,20 @@ public class PlayerManager : MonoBehaviour
 				
         if (_isFlying)
 		{
-            _moveDirection = thirdPersonFlyingController.MoveDirection(); 
-						
-			mouseOrbit.enabled = false;	
+            mouseOrbit.enabled = false;
+            mouseAimFlying.enabled = true;
 			//playerLookTarget.enabled = false;
 			headLookController.enabled = false;
 		}
         else
 		{
-            _moveDirection = thirdPersonController.MoveDirection();
-			mouseOrbit.enabled = true;
+          	mouseOrbit.enabled = true;
+            mouseAimFlying.enabled = false;
 			//playerLookTarget.enabled = true;
 			headLookController.enabled = true;
 		}
 
-
+        _moveDirection = thirdPersonFlyingController.MoveDirection(); 
       
     }
 
