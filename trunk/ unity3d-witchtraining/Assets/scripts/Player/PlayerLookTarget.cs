@@ -47,7 +47,6 @@ public class PlayerLookTarget : MonoBehaviour
 		
 		if (playerManager.IsFlying())
 		{		
-			lookObject.transform.localPosition = lookOriginalTransform;							
 			wasInAir = true;
 		}
 		else

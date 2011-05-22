@@ -240,7 +240,7 @@ public class ThirdPersonFlyingController : MonoBehaviour
 				
             }
 
-            
+            //just tells the playerManager where to Look for the aim target.
 			Vector3 newLookDirection = lookObject.transform.position -  transform.position;
 			newLookDirection.Normalize();
 		
