@@ -74,6 +74,7 @@
      <Compile Include="Assets\scripts\Player\ThirdPersonController.cs" />
      <Compile Include="Assets\scripts\Player\ThirdPersonFlyingController.cs" />
      <Compile Include="Assets\scripts\Player\ThirdPersonPlayerAnimation.cs" />
+     <None Include="Assets\scripts\Shaders\Radar Occlude.shader" />
      <Compile Include="Assets\scripts\GameManager.cs" />
      <Compile Include="Assets\scripts\iTween.cs" />
      <None Include="Assets\Standard Assets\Blob-Shadow\ShadowProjection.shader" />

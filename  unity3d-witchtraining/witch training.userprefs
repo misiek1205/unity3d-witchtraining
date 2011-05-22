@@ -1,14 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\environment\BlobShadow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Shaders\Radar Occlude.shader">
     <Files>
+      <File FileName="Assets\Shaders\Radar Occlude.shader" Line="23" Column="15" />
       <File FileName="Assets\scripts\Player\ThirdPersonFlyingController.cs" Line="48" Column="1" />
       <File FileName="Assets\scripts\Player\PlayerAnimationEvents.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\Camera\RadarCamera.cs" Line="1" Column="1" />
       <File FileName="Assets\GUI\HealthGUI.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\Player\PlayerBombThrowing.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\Player\PlayerBombThrowing.cs" Line="48" Column="10" />
       <File FileName="Assets\scripts\Camera\CameraManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\environment\BlobShadow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
