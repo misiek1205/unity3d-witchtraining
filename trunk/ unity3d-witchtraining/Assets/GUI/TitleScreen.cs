@@ -8,15 +8,15 @@ public class TitleScreen : MonoBehaviour
     private Texture2D titleGraphic;
 	
 	
-	private GUIManager guiManager;
+	private GameManager gameManager;
 	
     // Use this for initialization
     void Start()
     {
          titleSkin = (GUISkin)Resources.Load("TimerGUISkin");
          titleGraphic = (Texture2D)Resources.Load("Title-Logo");
-		
-		guiManager = GetComponent<GUIManager>();
+
+         gameManager = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -39,9 +39,9 @@ public class TitleScreen : MonoBehaviour
 		
 		GUI.Label(new Rect (0,50,220,134), titleGraphic);
 		
-		if (GUI.Button (new Rect (10,210,180,50), "Start Game")) {
-				Application.LoadLevel ("level");
-				guiManager._state = GUIManager.GUIState.InGame;
+		if (GUI.Button (new Rect (10,210,180,50), "Level Select")) {
+				Application.LoadLevel ("level-select");
+				gameManager.SetState( GameManager.GameState.LevelSelect);
 				Destroy(this);
 			}
 
