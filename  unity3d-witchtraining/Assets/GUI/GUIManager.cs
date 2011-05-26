@@ -13,21 +13,8 @@ using System.Collections;
 public class GUIManager : MonoBehaviour
 {
 
-    public enum GUIState {
-        TitleScreen,
-        Menu,
-        LevelWin,
-        LevelSelect,
-        GameOver,
-        Credits,
-        ChallengeInstructions,
-        InGame
-    };
 
     private GameManager gameManager;
-
-    //local variable that represents states
-    public GUIState _state;
 
     public GUISkin guiSkin;
 
@@ -38,9 +25,9 @@ public class GUIManager : MonoBehaviour
     void Start()
     {
         //for now start as in game until other GUI screens can be done
-        _state = GUIState.TitleScreen;
-        gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
+       gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
         DontDestroyOnLoad(this);
+       
 
     }
 
@@ -71,30 +58,32 @@ public class GUIManager : MonoBehaviour
     {
         //Title GUI Screen
 
-        switch(_state)
+        switch (gameManager.State())
         {
             //if Title Screen
-            case GUIState.TitleScreen:
+            case GameManager.GameState.TitleScreen:
 
-		if (!GetComponent<TitleScreen>()) {
-			this.gameObject.AddComponent<TitleScreen>();
-			}
-			
+		        if (!GetComponent<TitleScreen>()) 
+			        this.gameObject.AddComponent<TitleScreen>();
+			    break;
+
+
+        case GameManager.GameState.LevelSelect:
+                if (!GetComponent<LevelSelectScreen>())
+                    this.gameObject.AddComponent<LevelSelectScreen>();
                 break;
-            
-            //if InGame GUI Screen
-            case GUIState.InGame:
+
+           
+       case GameManager.GameState.InGame:
                 
             //create HUDTimer Object if it doesn't exist             
-            if (!GetComponent<HUDTimer>()) {
-                    this.gameObject.AddComponent<HUDTimer>();
-            }
-
+            if (!GetComponent<HUDTimer>()) 
+                this.gameObject.AddComponent<HUDTimer>();
+            
             //health of character GUI
             if (!GetComponent<HealthGUI>())
-            {
-                this.gameObject.AddComponent<HealthGUI>();
-            }
+               this.gameObject.AddComponent<HealthGUI>();
+           
 
 					//Pause button logic
         //adds pause button component if paused, otherwise will remove it
