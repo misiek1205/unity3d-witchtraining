@@ -91,6 +91,7 @@
      <None Include="Assets\Standard Assets\Scripts\FPSWalker.js" />
      <Compile Include="Assets\Standard Assets\Scripts\MeshCombineUtility.cs" />
      <None Include="Assets\Standard Assets\Scripts\TimedObjectDestructor.js" />
+     <Compile Include="Assets\CollectableItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
