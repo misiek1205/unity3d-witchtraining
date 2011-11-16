@@ -66,15 +66,15 @@ public class GUIManager : MonoBehaviour
 		        if (!GetComponent<TitleScreen>()) 
 			        this.gameObject.AddComponent<TitleScreen>();
 			    break;
+	
+			case GameManager.GameState.LevelSelect:
 
-
-        case GameManager.GameState.LevelSelect:
-                if (!GetComponent<LevelSelectScreen>())
-                    this.gameObject.AddComponent<LevelSelectScreen>();
+		        if (!GetComponent<LevelSelectScreen>()) 
+			        this.gameObject.AddComponent<LevelSelectScreen>();
                 break;
 
            
-       case GameManager.GameState.InGame:
+       		case GameManager.GameState.InGame:
                 
             //create HUDTimer Object if it doesn't exist             
             if (!GetComponent<HUDTimer>()) 

@@ -4,13 +4,20 @@ using System.Collections;
 public class LevelSelectScreen : MonoBehaviour
 {
 
-    private GUISkin titleSkin;
+    //public GUISkin titleSkin;
     private GameManager gameManager;
+	private GUIManager guiManager;
 
     // Use this for initialization
-    void Start()
+    void Awake() 
+	{
+		gameManager = GetComponent<GameManager>();
+		guiManager = GetComponent<GUIManager>();
+	}
+	
+	void Start()
     {
-        gameManager = GetComponent<GameManager>();
+		Debug.Log(guiManager);
     }
 
     void Update() {
@@ -18,7 +25,7 @@ public class LevelSelectScreen : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.skin = titleSkin;
+        GUI.skin = guiManager.guiSkin;
 
 
         float titleMenuW = 350.0f;
