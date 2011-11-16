@@ -42,6 +42,7 @@ public class TitleScreen : MonoBehaviour
 		if (GUI.Button (new Rect (10,210,180,50), "Level Select")) {
 				Application.LoadLevel ("level-select");
 				gameManager.SetState( GameManager.GameState.LevelSelect);
+			
 				Destroy(this);
 			}
 
